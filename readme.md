@@ -18,3 +18,5 @@ cd .. && streamlit run frontend/src/app.py --server.port 8080
 - [x] mount volume to save downloaded weights and allow changes to source code
 - [ ] add customizable categories
 - [ ] load dataset and export tagging as metadata in coco format
+
+![app_image](https://raw.githubusercontent.com/zzzrenn/image-tagging/main/.images/app.png)
