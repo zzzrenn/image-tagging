@@ -1,0 +1,23 @@
+services:
+    image_analyzer_backend:
+        build: ./backend
+        ports:
+            - 6000:6000
+        restart: always
+        container_name: backend
+        networks:
+            - image_analyzer_network
+        image: image_analyzer_backend
+    
+    image_analyzer_frontend:
+        build: ./frontend
+        ports:
+            - 8080:8080
+        restart: always
+        container_name: frontend
+        networks:
+            - image_analyzer_network
+        image: image_analyzer_frontend
+networks:
+    image_analyzer_network:
+        name: image_analyzer_network
