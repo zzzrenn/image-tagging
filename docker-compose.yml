@@ -3,21 +3,36 @@ services:
         build: ./backend
         ports:
             - 6000:6000
-        restart: always
+        restart: on-failure
         container_name: backend
         networks:
             - image_analyzer_network
         image: image_analyzer_backend
+        init: true
+        volumes:
+            - type: bind
+              source: ./backend/src
+              target: /app/src
+            - type: bind
+              source: ./backend/weights
+              target: /app/weights
     
     image_analyzer_frontend:
         build: ./frontend
         ports:
             - 8080:8080
-        restart: always
+        restart: on-failure
         container_name: frontend
         networks:
             - image_analyzer_network
         image: image_analyzer_frontend
+        init: true
+        environment:
+            - BACKEND_URL=http://backend:6000
+        volumes:
+            - type: bind
+              source: ./frontend/src
+              target: /app/src
 networks:
     image_analyzer_network:
         name: image_analyzer_network

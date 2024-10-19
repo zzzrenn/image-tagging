@@ -30,7 +30,7 @@ class SceneAnalyzer:
         # Load CLIP model
         logger.info("Loading CLIP model...")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        self.model, self.preprocess = clip.load("ViT-L/14", device=self.device)
+        self.model, self.preprocess = clip.load("ViT-L/14", device=self.device, download_root="weights")
         logger.info(f"CLIP model loaded successfully. Using device: {self.device}")
         
     def _encode_text_descriptions(self, descriptions: List[str]) -> torch.Tensor:

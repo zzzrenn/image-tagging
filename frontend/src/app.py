@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BACKEND_URL = os.getenv('BACKEND_URL', 'http://image_analyzer_backend:6000')
+BACKEND_URL = os.getenv('BACKEND_URL', 'http://localhost:6000')
 
 def main():
     st.title("📸 Scene Context Analyzer")

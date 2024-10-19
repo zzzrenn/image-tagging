@@ -1,2 +1,7 @@
+# virtual environment packages
 .vevn/
+
 **/*.pyc
+
+# downloaded model weights
+weights/
